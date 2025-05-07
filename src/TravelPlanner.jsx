@@ -184,7 +184,7 @@ const TravelPlanner = () => {
     setSubmitted(true); // Form submitted, shift the form to left
 
     try {
-      const res = await axios.post(`${API_URL}/generate-plan`, formData, {
+      const res = await axios.post(`${baseURL}/generate-plan`, formData, {
         headers: {
           'Content-Type': 'application/json'
         },
