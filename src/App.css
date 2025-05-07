@@ -354,17 +354,42 @@ h2{
   margin-top: 20px;
   background: black;
   color: white;
-  padding: 15px;
+  padding: 20px;
   border-radius: 6px;
-  border: 1px solid black;
+  border: 1px solid #444;
   width: 100%;
   overflow-y: auto;
   max-height: 400px;
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  white-space: pre-wrap;  /* Preserves new lines and spacing */
 }
+
+/* Optional: Styling bullet points for clarity */
+.response-box ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.response-box li {
+  margin-bottom: 8px;
+}
+
+/* Optional: Section headers formatting */
+.response-box strong,
+.response-box b {
+  color: #00e6e6;
+  display: inline-block;
+  margin-top: 10px;
+}
+
 
 .error-text {
   color: red;
+}
+.Goodtext{
+word-spacing: 20%;
+
 }
 
 @media (max-width: 768px) {

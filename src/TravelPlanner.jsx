@@ -265,7 +265,7 @@ const TravelPlanner = () => {
                 {response.success ? (
                   <>
                     <h3>Generated Plan:</h3>
-                    <p>{response.data.generatedPlan}</p>
+                    <p class="Goodtext">{response.data.generatedPlan}</p>
                   </>
                 ) : (
                   <p className="error-text">Error: {response.error}</p>
