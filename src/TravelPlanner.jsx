@@ -10,6 +10,9 @@ const TravelPlanner = () => {
     transport: ''
   });
 
+  const baseURL = import.meta.env.PROD
+  ? 'https://k5m74a3y7k.execute-api.eu-north-1.amazonaws.com/prod'
+  : '/api'; // Vite dev server proxy
   const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +26,7 @@ const TravelPlanner = () => {
     setResponse(null);
 
     try {
-      const res = await axios.post('/api/generate-plan', formData);
+      const res = await axios.post(`${baseURL}/generate-plan`, formData);
       setResponse(res.data);
     } catch (error) {
       console.error('Error:', error);
