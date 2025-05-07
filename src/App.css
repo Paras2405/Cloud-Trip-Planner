@@ -1,42 +1,134 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  background-image: url('http://www.pixelstalk.net/wp-content/uploads/2016/08/Desktop-Free-Images-Travel.jpg');
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+  position: relative;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Lighten Background Image */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.6); /* Lighten the background */
+  z-index: -1; /* Ensure it's behind the content */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Navbar */
+.topnav {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-.card {
-  padding: 2em;
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
 }
 
-.read-the-docs {
-  color: #888;
+.nav-icon {
+  width: 40px;
+  height: 40px;
+}
+
+/* Main Body */
+.travel-planner-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%; /* Ensure full width container */
+  box-sizing: border-box;
+}
+
+.form-and-response {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  max-width: 1200px; /* Prevent too wide layouts */
+}
+
+.form-container {
+  width: 50%; /* Increased width */
+  padding: 20px;
+  transition: all 0.5s ease-in-out;
+  box-sizing: border-box;
+}
+
+.response-container {
+  width: 60%; /* Increased width */
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+  box-sizing: border-box;
+}
+
+.travel-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+}
+
+.travel-form button {
+  padding: 10px 16px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.travel-form button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.response-box {
+  margin-top: 20px;
+  background: black;
+  color: white;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.error-text {
+  color: red;
+}
+
+.shifted .form-container {
+  transform: translateX(-5%);
+}
+
+.shifted .response-container {
+  opacity: 1;
+  visibility: visible;
 }

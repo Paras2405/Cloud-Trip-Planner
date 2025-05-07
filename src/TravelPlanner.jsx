@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './App.css';
 
 const TravelPlanner = () => {
   const [formData, setFormData] = useState({
@@ -37,35 +38,81 @@ const TravelPlanner = () => {
   };
 
   return (
-    <div style={{ padding: 20, maxWidth: 500, margin: 'auto' }}>
-      <h2>Travel Plan Generator</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="location" placeholder="Location" onChange={handleChange} required />
-        <input name="budget" placeholder="Budget" onChange={handleChange} required />
-        <input name="duration" placeholder="Duration (in days)" onChange={handleChange} required />
-        <input name="ageGroup" placeholder="Age Group" onChange={handleChange} required />
-        <input name="transport" placeholder="Transport Mode" onChange={handleChange} required />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Generating...' : 'Generate Plan'}
-        </button>
-      </form>
-
-      {response && (
-        <div style={{ marginTop: 20 }}>
-          {response.success ? (
-            <>
-              <h3>Generated Plan:</h3>
-              <p>{response.data?.generatedPlan || "No plan available."}</p>
-
-
-            </>
-          ) : (
-            <p style={{ color: 'red' }}>Error: {response.error}</p>
-          )}
+    <>
+      <nav className="topnav">
+        <div className="nav-left">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" alt="Profile" className="nav-icon" />
         </div>
-      )}
-    </div>
+        <div className="nav-right">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu" className="nav-icon" />
+        </div>
+      </nav>
+
+      <div className="travel-planner-container">
+        <div className={`form-and-response ${submitted ? 'shifted' : ''}`}>
+          <div className="form-container">
+            <h2>Travel Plan Generator</h2>
+            <form onSubmit={handleSubmit} className="travel-form">
+              <input
+                name="location"
+                placeholder="Location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+              />
+              <input
+                name="budget"
+                placeholder="Budget"
+                value={formData.budget}
+                onChange={handleChange}
+                required
+              />
+              <input
+                name="duration"
+                placeholder="Duration (in days)"
+                value={formData.duration}
+                onChange={handleChange}
+                required
+              />
+              <input
+                name="ageGroup"
+                placeholder="Age Group"
+                value={formData.ageGroup}
+                onChange={handleChange}
+                required
+              />
+              <input
+                name="transport"
+                placeholder="Transport Mode"
+                value={formData.transport}
+                onChange={handleChange}
+                required
+              />
+              <button type="submit" disabled={loading}>
+                {loading ? 'Generating...' : 'Generate Plan'}
+              </button>
+            </form>
+          </div>
+
+          <div className="response-container">
+            {response && (
+              <div className="response-box">
+                {response.success ? (
+                  <>
+                    <h3>Generated Plan:</h3>
+                    <p>{response.data.generatedPlan}</p>
+                  </>
+                ) : (
+                  <p className="error-text">Error: {response.error}</p>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default TravelPlanner;
+//"Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key",
