@@ -52,7 +52,9 @@ const TravelPlanner = () => {
           {response.success ? (
             <>
               <h3>Generated Plan:</h3>
-              <p>{response.data.generatedPlan}</p>
+              <p>{response.data?.generatedPlan || "No plan available."}</p>
+
+
             </>
           ) : (
             <p style={{ color: 'red' }}>Error: {response.error}</p>
