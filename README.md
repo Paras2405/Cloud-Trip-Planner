@@ -53,6 +53,8 @@ Trip Planner is a smart travel itinerary generator built on AWS that crafts pers
 ## 🚀 Outcome
 
 A fully functional trip planner that showcases the power of cloud computing and AI integration in building responsive, serverless applications.
+Hosted url:https://aws-trip-planner.onrender.com/
+
 
 ---
 
