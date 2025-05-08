@@ -6,7 +6,7 @@ Trip Planner is a smart travel itinerary generator built on AWS that crafts pers
 
 ## ✨ Features
 
-- 🧠 **AI-Powered Itinerary Generation** using Cohere and Gemini APIs.
+- 🧠 **AI-Powered Itinerary Generation** using Gemini APIs.
 - 🛠️ **Serverless Backend** powered by AWS Lambda and Node.js.
 - 💾 **Data Persistence** via DynamoDB for storing user inputs and generated itineraries.
 - 🔐 **UUID-based Identification** to keep it lightweight and simple (no user authentication).
@@ -25,11 +25,11 @@ Trip Planner is a smart travel itinerary generator built on AWS that crafts pers
    - Budget
 
 2. **AI Integration**:  
-   The backend passes these inputs to the **Cohere API**, which generates a personalized trip itinerary. Additionally, **Gemini API** is used for refining responses based on context and preferences.
+   The backend passes these inputs to the **Gemini API**, which generates a personalized trip itinerary. Additionally, it is used for refining responses based on context and preferences.
 
 3. **Backend Logic**:  
    - A Node.js function is deployed via **AWS Lambda**.
-   - It handles input processing and triggers Cohere/Gemini API.
+   - It handles input processing and triggers Gemini API.
    - The results and inputs are stored in **AWS DynamoDB**.
    - Each entry is uniquely identified using **UUID** for simplicity.
 
@@ -45,7 +45,7 @@ Trip Planner is a smart travel itinerary generator built on AWS that crafts pers
 - **Frontend**: React, Render Deployment  
 - **Backend**: Node.js, AWS Lambda  
 - **Database**: AWS DynamoDB  
-- **APIs Used**: Cohere API (for itinerary generation), Gemini API (for response enhancement)  
+- **APIs Used**:  Gemini API (for itinerary generation and response enhancement)  
 - **Other Tools**: UUID (for session/entry tracking)
 
 ---
